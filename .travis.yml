@@ -13,5 +13,5 @@ before_deploy:
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
-  on: main
+  all_branches: true
   app: "book-demo-store-biswajit"
