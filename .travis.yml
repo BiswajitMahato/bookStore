@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk17
+  - openjdk8
 
 script:
   - ./gradlew check
@@ -13,5 +13,6 @@ before_deploy:
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
-  all_branches: true
+  on:
+    all_branches: true
   app: "book-demo-store-biswajit"
