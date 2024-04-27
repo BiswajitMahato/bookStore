@@ -17,5 +17,6 @@ script:
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
-  on: main
-  app: "book-demo-store-biswajit"
+  app: book-demo-store-biswajit
+  on:
+    branch: continuos-deployment
