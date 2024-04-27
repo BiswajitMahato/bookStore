@@ -1,18 +1,21 @@
 language: java
 jdk:
-  - openjdk8
+  - openjdk17
+
+#before_deploy:
+ # - gem install specific_install || true
+ # - gem specific_install https://github.com/tumblr/tumblr_client || true
+ # - gem specific_install https://github.com/lostisland/faraday || true
+sudo: required
+
+before_install:
+  - chmod +x gradlew
 
 script:
-  - ./gradlew check
+  - ./gradlew build
 
-before_deploy:
-  - gem install specific_install || true
-  - gem specific_install https://github.com/tumblr/tumblr_client || true
-  - gem specific_install https://github.com/lostisland/faraday || true
-  -
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
-  on:
-    all_branches: true
+  on: main
   app: "book-demo-store-biswajit"
