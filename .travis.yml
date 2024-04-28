@@ -2,10 +2,11 @@ language: java
 jdk:
   - openjdk17
 
-#before_deploy:
- # - gem install specific_install || true
- # - gem specific_install https://github.com/tumblr/tumblr_client || true
- # - gem specific_install https://github.com/lostisland/faraday || true
+before_deploy:
+  - gem install specific_install || true
+  - gem specific_install https://github.com/tumblr/tumblr_client || true
+  - gem specific_install https://github.com/lostisland/faraday || true
+
 sudo: required
 
 before_install:
@@ -14,8 +15,8 @@ before_install:
 
 script:
   - ./gradlew build
-before_deploy:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 2.9.0
+#before_deploy:
+ # - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 2.9.0
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
