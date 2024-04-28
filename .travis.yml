@@ -6,7 +6,7 @@ jdk:
  # - gem install specific_install || true
  # - gem specific_install https://github.com/tumblr/tumblr_client || true
  # - gem specific_install https://github.com/lostisland/faraday || true
-sudo: required
+#sudo: required
 
 before_install:
   - chmod +x gradlew
@@ -19,5 +19,5 @@ deploy:
   api_key: $HEROKU_TOKEN
   app: book-demo-store-biswajit
   on:
-    #branch: master
-    all_branches: true
+    branch: develop
+    #all_branches: true
