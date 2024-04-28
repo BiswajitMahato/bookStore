@@ -6,14 +6,15 @@ jdk:
  # - gem install specific_install || true
  # - gem specific_install https://github.com/tumblr/tumblr_client || true
  # - gem specific_install https://github.com/lostisland/faraday || true
-#sudo: required
+sudo: required
 
 before_install:
   - chmod +x gradlew
 
 script:
   - ./gradlew build
-
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 3.0.2
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
