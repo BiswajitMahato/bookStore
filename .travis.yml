@@ -11,7 +11,7 @@ sudo: required
 
 before_install:
   - chmod +x gradlew
-  - gem install bundler
+  #- gem install bundler
 
 script:
   - ./gradlew build
